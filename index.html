@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Random Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 50px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<h1>Random Number Generator</h1>
+<p>Click the button below to generate an array of 10 random numbers between 1 and 100:</p>
+<button onclick="generateRandomNumbers()">Try your luck</button>
+<p id="target"></p>
+<p id="result"></p>
+
+<script>
+    function generateRandomNumbers() {
+        var expected = [];
+        var result = [];
+        for (var i = 0; i < 10; i++) {
+            var randomNumber = Math.floor(Math.random() * 100) + 1;
+            var randomNumber2 = Math.floor(Math.random() * 100) + 1;
+            result.push(randomNumber);
+            expected.push(randomNumber2);
+        }
+        document.getElementById("result").innerHTML = "Random result: " + result.join(", ");
+        document.getElementById("target").innerHTML = "Random result: " + expected.join(", ");
+        if (JSON.stringify(result) === JSON.stringify(expected)) {
+            document.getElementById("result").innerHTML += "<br><br>You should try hitting the lottery!!";
+        }
+    }
+</script>
+</body>
+</html>
